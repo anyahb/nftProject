@@ -16,10 +16,6 @@ toggleBtn.addEventListener('click', () => {
 })
 
 
-let hey = document.querySelector('.logo-description')
-toggleBtn.addEventListener('click', () => {
-    hey.classList.toggle('hey')
-})
 
 
 const options = {
@@ -134,6 +130,7 @@ const createNftList = () => {
         pointsContainer.append(pointsDiamond)
 
         const pointsDiamondSrc = document.createElement('img')
+        pointsDiamondSrc.classList.add('diam')
         pointsDiamondSrc.src = "./img/diam.png"
         pointsDiamond.append(pointsDiamondSrc)
 
