@@ -587,6 +587,7 @@ input[type='text'] {
 
 @media (max-width: 900px) {
 
+
     .logo {
         margin-right: unset;
     }
@@ -732,6 +733,9 @@ input[type='text'] {
         justify-items: center;
         max-width: 300px;
     }
+
+
+
 
     .holder__text {
         font-size: 14px;
