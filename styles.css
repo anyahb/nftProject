@@ -9,6 +9,8 @@
 
 body {
     background: #D03852;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 
