@@ -41,8 +41,6 @@ window.addEventListener("resize", function () {
 const createNftList = () => {
 
 
-
-
     //looping through the array of objects that contains info to display in the nft__option section
 
 
@@ -144,8 +142,9 @@ const createNftList = () => {
         .then(response => response.json())
         .then(response => {
 
+
             const allNfts = response.nfts
-            const cutNfts = allNfts.slice(0,6)
+            const cutNfts = allNfts.slice(0, 6)
             const customNftList = cutNfts.map(nft => {
                 return {
                     src: nft.cached_file_url,
@@ -159,16 +158,138 @@ const createNftList = () => {
             createOptions(customNftList)
 
 
-            console.log(response.nfts)
-
         })
         .catch(err => console.error(err));
-
 
 
 }
 
 createNftList()
+
+
+
+
+
+const topCreators = (arr) => {
+
+    const chartContainer = document.querySelector('.chart__container')
+    const chartHeader = document.createElement('div')
+    chartHeader.classList.add("chart__header")
+    chartContainer.append(chartHeader)
+
+
+    const chartTitle = document.createElement('div')
+    chartTitle.classList.add("chart__title")
+    chartTitle.textContent = "TOP CREATORS"
+    chartHeader.append(chartTitle)
+
+
+    const chartLink = document.createElement('div')
+    chartLink.classList.add("chart__link")
+    chartLink.textContent = "See all"
+    chartHeader.append(chartLink)
+
+    for (let i = 0; i < arr.length; i++) {
+
+        const creators = document.createElement('div')
+        creators.classList.add("creators")
+        chartContainer.append(creators)
+
+        const creator = document.createElement('div')
+        creator.classList.add("creator")
+        creators.append(creator)
+
+        const introItems = document.createElement('div')
+        introItems.classList.add('items') /*kak dobavit dva classa - creator__intro items*/
+        creator.append(introItems)
+
+        const itemsPic = document.createElement('div')
+        itemsPic.classList.add('items__pic')
+        introItems.append(itemsPic)
+        const itemsPicImg = document.createElement('img')
+        itemsPicImg.src = arr[i].src
+        itemsPic.append(itemsPicImg)
+
+        const itemsText = document.createElement('div')
+        itemsText.classList.add('items__text')
+        introItems.append(itemsText)
+        itemsText.textContent = arr[i].name
+
+        const creatorButton = document.createElement('button')
+        creatorButton.classList.add("creator__button")
+        creatorButton.textContent = "Follow"
+        creator.append(creatorButton)
+    }
+}
+
+
+const arrSort = () => {
+    const arr = [
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_boy"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_girl"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_anya"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_alex"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_daniil"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_ivan"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_katya"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_darion"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_matthew"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_jacob"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_ginny"
+        },
+        {
+            src: "./img/creator-1.png",
+            name: "dtom_chad"
+        }
+    ]
+
+
+    const cutCreators = arr.slice(0, 6)
+    const customCreatorList = cutCreators.map(item => {
+        return {
+            src: item.src,
+            name: item.name,
+        }
+    })
+
+    topCreators(customCreatorList)
+
+}
+
+arrSort()
+
 
 
 
