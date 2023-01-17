@@ -17,10 +17,10 @@ toggleBtn.addEventListener('click', () => {
     myProfile.classList.toggle('showHide')
 })
 
-
+const apiKey = '74df87e8-a684-43a5-bf41-c0765d15ee37'
 const options = {
     method: 'GET',
-    headers: {'Content-Type': 'application/json', Authorization: '74df87e8-a684-43a5-bf41-c0765d15ee37'}
+    headers: {'Content-Type': 'application/json', Authorization: apiKey}
 };
 
 
@@ -135,39 +135,51 @@ const createNftList = () => {
         }
     }
 
-    const contractAddress = '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D'
-    const chain = 'ethereum'
-
-    fetch(`https://api.nftport.xyz/v0/nfts/${contractAddress}?chain=${chain}`, options)
-        .then(response => response.json())
-        .then(response => {
 
 
-            const allNfts = response.nfts
-            const cutNfts = allNfts.slice(0, 6)
-            const customNftList = cutNfts.map(nft => {
-                return {
-                    src: nft.cached_file_url,
-                    title: "Wrost Artwork 1",
-                    name: "Tom Johnson",
-                    points: 3.5,
-                    icon: "./img/tom.png"
-                }
+
+
+    const getNfts = () => {
+        const contractAddress = '0x39ee2c7b3cb80254225884ca001f57118c8f21b6'
+        const chain = 'ethereum'
+
+        fetch(`https://api.nftport.xyz/v0/nfts/${contractAddress}?chain=${chain}`, options)
+            .then(response => response.json())
+            .then(response => {
+
+                const contractInfo = response.contract
+                const creatorIcon = contractInfo.metadata.thumbnail_url
+                const allNfts = response.nfts
+                const cutNfts = allNfts.slice(0, 6)
+                const customNftList = cutNfts.map(nft => {
+                    const metaData = nft.metadata
+
+                    const attributes = metaData.attributes
+                    const randomIndexTitle = 0
+                    const randomTitle = attributes[randomIndexTitle].value
+
+                    const randomIndexName = 2
+                    const randomName = attributes[randomIndexName].value
+                    return {
+                        src: nft.cached_file_url,
+                        title: randomTitle,
+                        name: randomName,
+                        points: 3.5,
+                        icon: creatorIcon
+                    }
+                })
+
+                createOptions(customNftList)
+
+
             })
+            .catch(err => console.error(err));
+    }
 
-            createOptions(customNftList)
-
-
-        })
-        .catch(err => console.error(err));
-
-
+    getNfts()
 }
 
 createNftList()
-
-
-
 
 
 const topCreators = (arr) => {
@@ -223,7 +235,7 @@ const topCreators = (arr) => {
 }
 
 
-const arrSort = () => {
+const createTopCreators = () => {
     const arr = [
         {
             src: "./img/creator-1.png",
@@ -288,7 +300,7 @@ const arrSort = () => {
 
 }
 
-arrSort()
+createTopCreators()
 
 
 
