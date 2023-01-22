@@ -1,6 +1,6 @@
 // making the sidebar to be shown/hidden when clicking the toggleBtn
 let side = document.querySelector('.first-column')
-let toggleBtn = document.getElementById('toggleBtn')
+let toggleBtn = document.getElementById('first-column__toggle-btn')
 toggleBtn.addEventListener('click', () => {
     side.classList.toggle('open')
 })
@@ -12,7 +12,7 @@ toggleBtn.addEventListener('click', () => {
     title.classList.toggle('showHide')
 })
 
-let myProfile = document.querySelector('.my-profile')
+let myProfile = document.querySelector('.first-column__my-profile')
 toggleBtn.addEventListener('click', () => {
     myProfile.classList.toggle('showHide')
 })
@@ -88,6 +88,7 @@ const createNftList = () => {
             intro.append(introImg)
 
             const introImgSrc = document.createElement('img')
+            introImgSrc.classList.add("intro-src")
             introImgSrc.src = list[i].icon
             introImg.append(introImgSrc)
 
@@ -217,6 +218,7 @@ const createTopCreatorsList = () => {
             itemsPic.classList.add('items__pic')
             introItems.append(itemsPic)
             const itemsPicImg = document.createElement('img')
+            itemsPicImg.classList.add("items-img")
             itemsPicImg.src = list[i].src
             itemsPic.append(itemsPicImg)
 

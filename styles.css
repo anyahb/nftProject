@@ -25,19 +25,19 @@ body {
     color: white;
 }
 
-.logo-description {
+.first-column__logo-container {
     color: #D3D3D3;
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
-.logo {
+.first-column__logo {
     position: relative;
     margin-right: 10px;
 }
 
-.desc {
+.first-column__description {
     font-family: Montserrat;
     font-size: 18px;
     font-weight: 500;
@@ -45,6 +45,10 @@ body {
     letter-spacing: 0em;
     text-align: left;
     display: none;
+}
+
+first-column__description_active {
+    color: #D03852;
 }
 
 .first-column__title {
@@ -95,7 +99,7 @@ input[type='text'] {
 }
 
 
-.inp {
+.enter__input {
     background: #181717;
     width: 100%;
     height: 50px;
@@ -105,12 +109,13 @@ input[type='text'] {
     border: none;
 }
 
-.header {
+.second-column__header {
     width: 100%;
     display: flex;
     padding-top: 30px;
     gap: 20px;
     justify-content: space-evenly;
+    margin-bottom: 25px;
 }
 
 
@@ -120,6 +125,10 @@ input[type='text'] {
     width: 40%;
     justify-content: left;
     max-width: 350px;
+}
+
+.holder__image {
+    width: 40px;
 }
 
 .second-column {
@@ -171,7 +180,7 @@ input[type='text'] {
     background-size: cover;
     width: 100%;
     background-position: top;
-    min-height: 200px;
+    min-height: 250px;
     background-repeat: no-repeat;
 }
 
@@ -189,7 +198,7 @@ input[type='text'] {
 
 }
 
-.button-space {
+.space__button-title {
     border: none;
     border-radius: 40px;
     font-size: 16px;
@@ -244,12 +253,7 @@ input[type='text'] {
     align-content: center;
 }
 
-.intro__img {
-    width: 50px;
-    height: 50px;
-}
-
-.intro__img img {
+.intro-src {
     width: 40px;
     border-radius: 100%;
 }
@@ -258,6 +262,7 @@ input[type='text'] {
     display: flex;
     padding-top: 10px;
     width: 100%;
+    gap: 10px;
 }
 
 .intro__img {
@@ -284,6 +289,14 @@ input[type='text'] {
 
 .nft {
     width: 60%;
+}
+
+.nft__main-title {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 600;
+    width: 100%;
+    padding: 30px 0px 30px 0px;
 }
 
 .nft__options {
@@ -390,15 +403,9 @@ input[type='text'] {
 
 .points__desc {
     font-size: 16px;
+    font-family: Montserrat;
 }
 
-.trending__title {
-    font-family: Montserrat;
-    font-size: 30px;
-    font-weight: 600;
-    width: 100%;
-    padding: 30px 0px 30px 0px;
-}
 
 
 .first-column {
@@ -418,9 +425,10 @@ input[type='text'] {
     margin: 0 auto 30px;
 }
 
-.logo-description:hover {
-    background-color: gray;
-    border-left: 5px solid #D03852;
+.first-column__logo-container:hover {
+    background-color: #D03852;
+  /*  border-left: 5px solid #D03852;*/
+    cursor: pointer;
 }
 
 .first-column button {
@@ -456,11 +464,13 @@ input[type='text'] {
     display: block;
 }
 
-.my-profile {
+.first-column__my-profile {
     display: block;
+    color: #D03852;
 }
 
-.my-profile.showhide {
+
+.first-column__my-profile.showhide {
     display: none;
 }
 
@@ -472,16 +482,16 @@ input[type='text'] {
     display: none;
 }
 
-.logo img {
+.first-column__icon {
     width: 32px;
     height: 28px;
 }
 
-.open .desc {
+.open .first-column__description {
     display: block;
 }
 
-.items__pic img {
+.items-img {
     width: 40px;
     clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
 }
@@ -505,6 +515,11 @@ input[type='text'] {
 
 }
 
+
+
+
+
+
 @media (max-width: 1200px) {
 
 
@@ -525,29 +540,16 @@ input[type='text'] {
     }
 
     .creator__button {
-        width: 60px;
-        height: 30px;
+        width: 70px;
+        height: 40px;
         font-size: 14px;
     }
 
-    .items__text {
-        font-size: 12px;
-    }
 
-    .chart__header {
-        display: flex;
-        justify-content: center;
-        padding-top: 20px;
-        gap: 10px;
-    }
 
-    .points__desc {
-        font-size: 12px;
-    }
 
-    .nft__title {
-        font-size: 16px;
-    }
+
+
 
     .points__container {
         width: max-content;
@@ -563,12 +565,13 @@ input[type='text'] {
         max-width: 350px;
     }
 
-    .intro__name {
-        font-size: 14px;
-    }
 
     .intro {
         gap: 10px;
+    }
+
+    .nft__description {
+        flex-wrap: wrap;
     }
 
 }
@@ -576,25 +579,31 @@ input[type='text'] {
 @media (max-width: 900px) {
 
 
-    .logo {
+    .first-column__logo {
         margin-right: unset;
     }
 
-    .trending__title {
+    .nft__main-title {
         font-size: 24px;
     }
 
     .intro__name {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .first-column__title {
         font-size: 26px;
     }
 
-    .desc {
+    .first-column__description {
         font-size: 14px;
     }
+
+    .items__text {
+        max-width: min-content;
+    }
+
+
 
 
 }
@@ -621,7 +630,6 @@ input[type='text'] {
         width: 100%;
     }
 
-
     .nft {
         width: 100%;
     }
@@ -647,7 +655,7 @@ input[type='text'] {
     }
 
 
-    .trending__title {
+    .nft__main-title {
         padding: 50px 0px 30px 0px;
     }
 
@@ -672,7 +680,7 @@ input[type='text'] {
         justify-self: center;
     }
 
-    .header {
+    .second-column__header {
         display: flex;
         width: 100%;
         flex-wrap: wrap;
@@ -680,12 +688,18 @@ input[type='text'] {
 
     }
 
+    .items__text {
+        max-width: unset;
+    }
+
+
+
 }
 
 
 @media (max-width: 600px) {
 
-    .inp {
+    .enter__input {
         height: 40px;
     }
 
@@ -697,16 +711,12 @@ input[type='text'] {
         grid-template-columns: 1fr;
     }
 
-    .nft__description {
-        display: flex;
-        justify-content: space-around;
-    }
 
     .nft__img {
         width: 80%;
     }
 
-    .nft__option img {
+    .nft__img {
         display: grid;
         width: 100%;
         justify-items: center;
@@ -715,6 +725,10 @@ input[type='text'] {
 
     .holder__text {
         font-size: 14px;
+    }
+
+    .items__text {
+        max-width: min-content;
     }
 
 }
@@ -736,7 +750,7 @@ input[type='text'] {
         font-size: 12px;
     }
 
-    .logo img {
+    .first-column__icon {
         width: 24px;
         height: 19px;
     }
@@ -745,12 +759,20 @@ input[type='text'] {
         font-size: 24px;
     }
 
-    .logo-description.hey {
+    .first-column__logo-container.hey {
         display: grid;
     }
 
-    .logo-description {
+    .first-column__logo-container {
         display: flex;
+    }
+
+    .creator__button {
+        width: 60px;
+    }
+
+    .items {
+        gap: 5px;
     }
 
 }
