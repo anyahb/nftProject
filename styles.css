@@ -355,6 +355,7 @@ input[type='text'] {
     display: flex;
     align-items: center;
     height: 100%;
+    width: -webkit-fill-available;
 }
 
 .items__text {
@@ -579,6 +580,8 @@ input[type='text'] {
 @media (max-width: 900px) {
 
 
+
+
     .first-column__logo {
         margin-right: unset;
     }
@@ -603,6 +606,9 @@ input[type='text'] {
         max-width: min-content;
     }
 
+    .points__desc {
+        font-size: 14px;
+    }
 
 
 
@@ -731,12 +737,25 @@ input[type='text'] {
         max-width: min-content;
     }
 
+    .nft__description {
+        flex-wrap: unset;
+    }
+
 }
 
 @media (max-width: 480px) {
 
     .first-column button {
         display: none;
+    }
+
+    .points__container {
+        gap: 5px;
+        max-width: 80px;
+    }
+
+    .points__desc {
+        font-size: 12px;
     }
 }
 
