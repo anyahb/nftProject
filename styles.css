@@ -355,7 +355,7 @@ input[type='text'] {
     display: flex;
     align-items: center;
     height: 100%;
-    width: -webkit-fill-available;
+    /*width: -webkit-fill-available;*/
 }
 
 .items__text {
@@ -463,6 +463,10 @@ input[type='text'] {
 
 .first-column__title.showhide {
     display: block;
+}
+
+.showHide {
+    display: grid;
 }
 
 .first-column__my-profile {
