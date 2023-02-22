@@ -1,21 +1,22 @@
 // making the sidebar to be shown/hidden when clicking the toggleBtn
-let side = document.querySelector('.first-column')
-let toggleBtn = document.getElementById('first-column__toggle-btn')
+let side = document.querySelector('.navigation')
+let toggleBtn = document.getElementById('navigation__toggle-btn')
 toggleBtn.addEventListener('click', () => {
     side.classList.toggle('open')
 })
 
 //hiding the sidebar title and "my Profile" text when clicking the toggleBtn
 
-let title = document.querySelector('.first-column__title')
+let title = document.querySelector('.navigation__title')
 toggleBtn.addEventListener('click', () => {
     title.classList.toggle('showHide')
 })
 
-let myProfile = document.querySelector('.first-column__my-profile')
+let myProfile = document.querySelector('.navigation__my-profile')
 toggleBtn.addEventListener('click', () => {
     myProfile.classList.toggle('showHide')
 })
+
 
 const apiKey = '74df87e8-a684-43a5-bf41-c0765d15ee37'
 const options = {
@@ -27,13 +28,17 @@ const options = {
 //hiding the sidebar elements except icons when the window width is less than 480px
 if (window.innerWidth < 480) {
     side.classList.remove('open')
+    title.classList.remove('showHide')
+    myProfile.classList.remove('showHide')
 }
+
+
 
 window.addEventListener("resize", function () {
     if (window.innerWidth < 480) {
         side.classList.remove("open")
-        myProfile.classList.add('showhide')
-        title.classList.remove('showhide')
+        title.classList.remove('showHide')
+        myProfile.classList.remove('showHide')
     }
 })
 
